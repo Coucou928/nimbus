@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimbus — 让团队的每一次交付都清晰可见</title>
+  <meta name="description" content="Nimbus 把需求、代码与发布串联成一条可追溯的链路，让团队在同一个视图里对齐进度、发现风险、准时交付。" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nimbus — 让团队的每一次交付都清晰可见" />
+  <meta property="og:description" content="把需求、代码与发布串联成一条可追溯的链路，让团队在同一个视图里对齐进度、发现风险、准时交付。" />
+  <meta property="og:image" content="assets/og-cover.svg" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <!-- ============ 导航 ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#" aria-label="Nimbus 首页">
+        <svg class="brand__mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+          <rect width="26" height="26" rx="7" fill="currentColor" />
+          <path d="M7.5 16.8c0-2.1 1.7-3.8 3.8-3.8.4-1.6 1.8-2.8 3.5-2.8 1.9 0 3.5 1.4 3.7 3.2 1.4.3 2.5 1.6 2.5 3.1 0 1.7-1.4 3.1-3.1 3.1H10c-1.4 0-2.5-1.2-2.5-2.8Z" fill="#fff" />
+        </svg>
+        <span class="brand__name">Nimbus</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="主导航">
+        <a href="#features">功能</a>
+        <a href="#product">产品</a>
+        <a href="#pricing">价格</a>
+        <a href="#faq">问答</a>
+        <a class="btn btn--sm btn--primary nav__cta" href="#cta">免费开始</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <a class="pill" href="#features">
+          <span class="pill__dot"></span>
+          新版本 2.0 已发布
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <h1 class="hero__title">
+          让团队的每一次交付<br />
+          <span class="hero__title-accent">清晰可见</span>
+        </h1>
+
+        <p class="hero__sub">
+          Nimbus 把需求、代码与发布串联成一条可追溯的链路。<br class="br-desktop" />
+          在同一个视图里对齐进度、发现风险、准时交付。
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#cta">
+            免费开始使用
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#product">查看产品演示</a>
+        </div>
+
+        <p class="hero__note">无需信用卡 · 5 分钟接入 · 随时导出数据</p>
+
+        <!-- 产品预览：用纯 CSS/SVG 画的界面，不依赖图片资源 -->
+        <div class="hero__preview reveal">
+          <div class="window">
+            <div class="window__bar">
+              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+              <div class="window__addr">app.nimbus.dev/overview</div>
+            </div>
+            <div class="window__body">
+              <aside class="mini-side">
+                <div class="mini-side__item is-active"><i></i>概览</div>
+                <div class="mini-side__item"><i></i>迭代</div>
+                <div class="mini-side__item"><i></i>流水线</div>
+                <div class="mini-side__item"><i></i>成员</div>
+              </aside>
+              <div class="mini-main">
+                <div class="mini-stats">
+                  <div class="mini-stat"><span>本周交付</span><strong>24</strong><em class="up">+18%</em></div>
+                  <div class="mini-stat"><span>平均周期</span><strong>2.4<small>天</small></strong><em class="down">−31%</em></div>
+                  <div class="mini-stat"><span>阻塞项</span><strong>3</strong><em>需关注</em></div>
+                </div>
+                <div class="mini-chart" aria-hidden="true">
+                  <svg viewBox="0 0 320 90" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#2563eb" stop-opacity=".22" />
+                        <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M0 70 L40 62 L80 66 L120 48 L160 54 L200 34 L240 38 L280 20 L320 14 L320 90 L0 90 Z" fill="url(#areaFill)" />
+                    <path d="M0 70 L40 62 L80 66 L120 48 L160 54 L200 34 L240 38 L280 20 L320 14" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="mini-rows">
+                  <div class="mini-row"><span class="tag tag--blue">进行中</span><span class="mini-row__t">统一登录入口重构</span><span class="mini-row__m">@lin</span></div>
+                  <div class="mini-row"><span class="tag tag--green">已完成</span><span class="mini-row__t">发布流水线缓存优化</span><span class="mini-row__m">@zhou</span></div>
+                  <div class="mini-row"><span class="tag tag--amber">待评审</span><span class="mini-row__t">告警降噪规则 v2</span><span class="mini-row__m">@chen</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 信任/客户条 ============ -->
+    <section class="logos" aria-label="客户">
+      <div class="container">
+        <p class="logos__label">已有 1,200+ 团队用 Nimbus 交付</p>
+        <div class="logos__row">
+          <span>Lattice</span><span>Orbital</span><span>Northwind</span><span>Pixelforge</span><span>Helio</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 特性 ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">功能特性</span>
+          <h2>把散落的信息，收进一条主线</h2>
+          <p>不替代你现有的工具，而是把它们连起来。需求、代码、构建、发布，每一步都有据可查。</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>需求到发布全链路</h3>
+            <p>每个迭代自动关联对应的分支、构建与上线记录，回溯一次事故只需一次搜索。</p>
+          </article>
+
+          <article class="card reveal" data-delay="1">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3>风险实时预警</h3>
+            <p>基于历史周期自动识别可能延期的任务，在问题变大之前提醒到具体的人。</p>
+          </article>
+
+          <article class="card reveal" data-delay="2">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>可编程接口</h3>
+            <p>REST 与 Webhook 双通道，配合 CLI 可嵌入任意内部系统，不留数据孤岛。</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.5 12l2 2 3.5-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>细粒度权限</h3>
+            <p>按项目、按角色、按字段控制可见性，外部协作方只看到该看的部分。</p>
+          </article>
+
+          <article class="card reveal" data-delay="1">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V5M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 15l3.5-5 3 3L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>交付健康度</h3>
+            <p>周期时间、返工率、阻塞时长等 12 项指标开箱即用，无需自己搭看板。</p>
+          </article>
+
+          <article class="card reveal" data-delay="2">
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2"/><path d="M12 7.5v5l3.2 1.9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>五分钟接入</h3>
+            <p>向导式迁移工具读取现有项目结构，历史数据一并保留，不用停下手上的活。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 产品展示 ============ -->
+    <section class="section section--tint" id="product">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">产品演示</span>
+          <h2>看它怎么跑起来</h2>
+          <p>装一个 CLI，两行配置，剩下的交给 Nimbus。</p>
+        </div>
+
+        <div class="showcase">
+          <div class="code-panel reveal">
+            <div class="code-panel__bar">
+              <div class="tabs" role="tablist" aria-label="示例代码">
+                <button class="tab is-active" role="tab" aria-selected="true" data-tab="install">安装</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="config">配置</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="query">查询</button>
+              </div>
+              <button class="copy-btn" id="copyBtn" aria-label="复制代码">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/></svg>
+                <span>复制</span>
+              </button>
+            </div>
+            <pre class="code"><code id="codeBlock"><span class="c-cm"># 全局安装 CLI</span>
+<span class="c-fn">npm</span> install -g <span class="c-st">@nimbus/cli</span>
+
+<span class="c-cm"># 登录并关联当前仓库</span>
+<span class="c-fn">nimbus</span> login
+<span class="c-fn">nimbus</span> link --project team-alpha</code></pre>
+          </div>
+
+          <div class="showcase__points">
+            <div class="point reveal">
+              <h3>零改动接入</h3>
+              <p>不需要改 CI 配置，Nimbus 通过 Git 钩子与 Webhook 自动采集构建信息。</p>
+            </div>
+            <div class="point reveal" data-delay="1">
+              <h3>数据留在你手里</h3>
+              <p>支持一键导出全部数据为 JSON / CSV，也提供自托管部署方案。</p>
+            </div>
+            <div class="point reveal" data-delay="2">
+              <h3>和现有工具共存</h3>
+              <p>已打通 GitHub、GitLab、Jira、Slack、飞书，双向同步不产生重复录入。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 价格 ============ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">价格</span>
+          <h2>按团队规模定价，随时变更</h2>
+          <p>所有方案都包含完整功能，差异只在用量与支持级别。</p>
+        </div>
+
+        <div class="grid grid--3 pricing">
+          <article class="price reveal">
+            <h3>免费版</h3>
+            <p class="price__desc">适合个人与小团队试水</p>
+            <div class="price__num"><span>¥</span>0<small>/月</small></div>
+            <ul class="price__list">
+              <li>最多 3 名成员</li>
+              <li>2 个进行中项目</li>
+              <li>30 天历史数据</li>
+              <li>社区支持</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="#cta">开始使用</a>
+          </article>
+
+          <article class="price price--featured reveal" data-delay="1">
+            <span class="price__badge">最受欢迎</span>
+            <h3>团队版</h3>
+            <p class="price__desc">适合 5–50 人的研发团队</p>
+            <div class="price__num"><span>¥</span>79<small>/人/月</small></div>
+            <ul class="price__list">
+              <li>不限成员与项目</li>
+              <li>完整历史数据保留</li>
+              <li>风险预警与健康度报表</li>
+              <li>SSO 与细粒度权限</li>
+              <li>工作日 4 小时响应</li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="#cta">免费试用 14 天</a>
+          </article>
+
+          <article class="price reveal" data-delay="2">
+            <h3>企业版</h3>
+            <p class="price__desc">适合有合规要求的组织</p>
+            <div class="price__num">定制</div>
+            <ul class="price__list">
+              <li>自托管或私有云部署</li>
+              <li>审计日志与数据驻留</li>
+              <li>专属客户成功经理</li>
+              <li>99.95% SLA 与 1 小时响应</li>
+              <li>定制集成开发</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="#cta">联系我们</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--tint" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <span class="eyebrow">常见问题</span>
+          <h2>你可能想知道</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary>接入需要多长时间？<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="faq__body"><p>绝大多数团队在 5 分钟内完成。安装 CLI 后执行 <code>nimbus link</code>，工具会读取现有的仓库与项目结构并自动建立关联，无需手工录入。</p></div>
+          </details>
+
+          <details class="faq__item">
+            <summary>会不会影响我的构建速度？<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="faq__body"><p>不会。信息采集走异步通道，不阻塞 CI 主流程；实测对单次构建的额外耗时低于 200ms。</p></div>
+          </details>
+
+          <details class="faq__item">
+            <summary>我的代码会被上传吗？<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="faq__body"><p>不会。Nimbus 只读取提交元数据（提交哈希、分支、作者、时间与变更文件列表），不读取文件内容，也不需要仓库写权限。</p></div>
+          </details>
+
+          <details class="faq__item">
+            <summary>可以中途从其他工具迁移吗？<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="faq__body"><p>可以。迁移工具支持从 Jira、Trello 与 Linear 导入，历史任务、状态与评论都会保留，导入过程可随时中断与恢复。</p></div>
+          </details>
+
+          <details class="faq__item">
+            <summary>免费版有什么限制？<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+            <div class="faq__body"><p>免费版不限时间，上限为 3 名成员、2 个进行中项目与 30 天历史数据。超出后可以随时升级，降级时数据不会被删除。</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 最终 CTA ============ -->
+    <section class="cta" id="cta">
+      <div class="container">
+        <div class="cta__box reveal">
+          <h2>今天就把交付变清楚</h2>
+          <p>免费注册，5 分钟接入，随时导出全部数据。</p>
+          <form class="cta__form" id="ctaForm" novalidate>
+            <label class="sr-only" for="email">工作邮箱</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+            <button class="btn btn--primary" type="submit">创建工作区</button>
+          </form>
+          <p class="cta__msg" id="ctaMsg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#" aria-label="Nimbus 首页">
+          <svg class="brand__mark" width="24" height="24" viewBox="0 0 26 26" aria-hidden="true">
+            <rect width="26" height="26" rx="7" fill="currentColor" />
+            <path d="M7.5 16.8c0-2.1 1.7-3.8 3.8-3.8.4-1.6 1.8-2.8 3.5-2.8 1.9 0 3.5 1.4 3.7 3.2 1.4.3 2.5 1.6 2.5 3.1 0 1.7-1.4 3.1-3.1 3.1H10c-1.4 0-2.5-1.2-2.5-2.8Z" fill="#fff" />
+          </svg>
+          <span class="brand__name">Nimbus</span>
+        </a>
+        <p>让每一次交付都有据可查。</p>
+      </div>
+      <div class="footer__cols">
+        <div><h4>产品</h4><a href="#features">功能</a><a href="#pricing">价格</a><a href="#product">演示</a></div>
+        <div><h4>资源</h4><a href="#faq">常见问题</a><a href="#">开发文档</a><a href="#">更新日志</a></div>
+        <div><h4>公司</h4><a href="#">关于我们</a><a href="#">隐私政策</a><a href="#">服务条款</a></div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> Nimbus. 保留所有权利。</p>
+      <p class="footer__made">本站为演示站点，内容为占位示例。</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
