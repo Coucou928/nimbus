@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>简历工坊 — 在校生求职简历工具</title>
+  <meta name="description" content="8 套校招简历模板，实时预览，一页 A4 排版，无水印导出 PDF，数据存在本地不上传。" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/templates.css" />
+</head>
+<body>
+
+<!-- ============ 顶栏 ============ -->
+<header class="topbar">
+  <a class="topbar__brand" href="../index.html" title="返回首页">
+    <svg width="22" height="22" viewBox="0 0 26 26" aria-hidden="true">
+      <rect width="26" height="26" rx="7" fill="currentColor" />
+      <path d="M7.5 16.8c0-2.1 1.7-3.8 3.8-3.8.4-1.6 1.8-2.8 3.5-2.8 1.9 0 3.5 1.4 3.7 3.2 1.4.3 2.5 1.6 2.5 3.1 0 1.7-1.4 3.1-3.1 3.1H10c-1.4 0-2.5-1.2-2.5-2.8Z" fill="#fff" />
+    </svg>
+    <span>简历工坊</span>
+  </a>
+
+  <div class="topbar__actions">
+    <span class="save-state" id="saveState" aria-live="polite">已自动保存</span>
+    <button class="btn btn--ghost btn--sm" id="btnSample" type="button">填充示例</button>
+    <button class="btn btn--ghost btn--sm" id="btnReset" type="button">清空</button>
+    <button class="btn btn--primary btn--sm" id="btnExport" type="button">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      导出 PDF
+    </button>
+  </div>
+</header>
+
+<!-- ============ 主体 ============ -->
+<div class="workspace">
+
+  <!-- 左：编辑区 -->
+  <div class="editor" id="editor">
+
+    <!-- 模板选择 -->
+    <section class="panel">
+      <h2 class="panel__title">选择模板</h2>
+      <p class="panel__hint">切换模板不会丢失已填内容</p>
+      <div class="tpl-grid" id="tplGrid"></div>
+    </section>
+
+    <!-- 基本信息 -->
+    <section class="panel">
+      <h2 class="panel__title">基本信息</h2>
+      <div class="field-row">
+        <label class="field"><span>姓名</span><input type="text" data-bind="profile.name" placeholder="张三" /></label>
+        <label class="field"><span>求职意向</span><input type="text" data-bind="profile.title" placeholder="前端开发工程师" /></label>
+      </div>
+      <div class="field-row">
+        <label class="field"><span>手机</span><input type="tel" data-bind="profile.phone" placeholder="138 0000 0000" /></label>
+        <label class="field"><span>邮箱</span><input type="email" data-bind="profile.email" placeholder="you@example.com" /></label>
+      </div>
+      <div class="field-row">
+        <label class="field"><span>所在城市</span><input type="text" data-bind="profile.city" placeholder="杭州" /></label>
+        <label class="field"><span>个人主页（选填）</span><input type="text" data-bind="profile.link" placeholder="github.com/you" /></label>
+      </div>
+      <label class="field">
+        <span>个人简介 <em class="tip" data-tip="一句话说明你是谁、会什么、想做什么。建议 30–60 字，避免「性格开朗」这类空话。">?</em></span>
+        <textarea rows="3" data-bind="profile.summary" placeholder="计算机专业应届生，2 段前端实习经历，主导过 3 个线上项目，熟悉 React 与性能优化。"></textarea>
+      </label>
+    </section>
+
+    <!-- 教育背景 -->
+    <section class="panel">
+      <h2 class="panel__title">教育背景</h2>
+      <div id="eduList" class="list"></div>
+      <button class="btn btn--dashed" type="button" data-add="education">+ 添加教育经历</button>
+    </section>
+
+    <!-- 实习经历 -->
+    <section class="panel">
+      <h2 class="panel__title">实习与工作经历</h2>
+      <p class="panel__hint">每段经历建议写 2–3 条，用「做了什么 + 方法 + 结果」的结构</p>
+      <div id="expList" class="list"></div>
+      <button class="btn btn--dashed" type="button" data-add="experience">+ 添加实习经历</button>
+    </section>
+
+    <!-- 项目经历 -->
+    <section class="panel">
+      <h2 class="panel__title">项目经历</h2>
+      <div id="projList" class="list"></div>
+      <button class="btn btn--dashed" type="button" data-add="projects">+ 添加项目</button>
+    </section>
+
+    <!-- 技能 -->
+    <section class="panel">
+      <h2 class="panel__title">技能与证书</h2>
+      <label class="field">
+        <span>专业技能 <em class="tip" data-tip="用逗号分隔，如：React、TypeScript、Node.js。工具会渲染成标签形式。">?</em></span>
+        <textarea rows="2" data-bind="skills.tech" placeholder="React、TypeScript、Node.js、Git"></textarea>
+      </label>
+      <label class="field">
+        <span>通用能力（选填）</span>
+        <textarea rows="2" data-bind="skills.soft" placeholder="技术文档写作、跨团队沟通"></textarea>
+      </label>
+      <label class="field">
+        <span>证书荣誉（选填）</span>
+        <textarea rows="2" data-bind="skills.certs" placeholder="CET-6 580、校级一等奖学金"></textarea>
+      </label>
+    </section>
+
+  </div>
+
+  <!-- 右：预览区 -->
+  <div class="preview" id="preview">
+    <div class="preview__bar">
+      <span class="preview__label">实时预览</span>
+      <div class="preview__ctrl">
+        <button class="mini-btn" id="btnZoomOut" type="button" title="缩小">−</button>
+        <span id="zoomLabel">100%</span>
+        <button class="mini-btn" id="btnZoomIn" type="button" title="放大">+</button>
+      </div>
+    </div>
+    <div class="preview__scroll" id="previewScroll">
+      <div class="paper-wrap" id="paperWrap">
+        <div id="resumeRoot"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 模板/条目模板：由 JS 克隆使用 -->
+<template id="tplEdu">
+  <div class="item" data-kind="education">
+    <div class="item__head">
+      <span class="item__badge">教育</span>
+      <button class="item__del" type="button" data-del aria-label="删除">×</button>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>学校</span><input type="text" data-f="school" placeholder="XX 大学" /></label>
+      <label class="field"><span>专业</span><input type="text" data-f="major" placeholder="计算机科学与技术" /></label>
+    </div>
+    <div class="field-row field-row--3">
+      <label class="field"><span>学历</span>
+        <select data-f="degree"><option>本科</option><option>硕士</option><option>博士</option><option>专科</option></select>
+      </label>
+      <label class="field"><span>入学</span><input type="text" data-f="start" placeholder="2021.09" /></label>
+      <label class="field"><span>毕业</span><input type="text" data-f="end" placeholder="2025.06" /></label>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>GPA / 排名（选填）</span><input type="text" data-f="gpa" placeholder="3.7/4.0 或 前 10%" /></label>
+    </div>
+    <label class="field"><span>主修课程 / 荣誉（选填）</span><textarea rows="2" data-f="detail" placeholder="数据结构、操作系统、计算机网络；校级一等奖学金"></textarea></label>
+  </div>
+</template>
+
+<template id="tplExp">
+  <div class="item" data-kind="experience">
+    <div class="item__head">
+      <span class="item__badge">实习</span>
+      <div class="item__head-right">
+        <label class="switch" title="在简历中显示这段"><input type="checkbox" data-f="visible" checked /><span></span></label>
+        <button class="item__del" type="button" data-del aria-label="删除">×</button>
+      </div>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>公司</span><input type="text" data-f="company" placeholder="XX 科技有限公司" /></label>
+      <label class="field"><span>职位</span><input type="text" data-f="role" placeholder="前端开发实习生" /></label>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>开始</span><input type="text" data-f="start" placeholder="2024.03" /></label>
+      <label class="field"><span>结束</span><input type="text" data-f="end" placeholder="2024.09" /></label>
+    </div>
+    <label class="field">
+      <span>工作内容 <em class="tip" data-tip="每行一条。推荐结构：动词开头 + 做了什么 + 带来什么结果（尽量带数字）。">?</em></span>
+      <textarea rows="4" data-f="desc" placeholder="主导商品列表页性能优化，首屏加载从 3.2s 降至 1.1s&#10;搭建组件库，复用 20+ 组件，新页面开发效率提升 40%"></textarea>
+    </label>
+    <div class="item__hint" data-hint></div>
+  </div>
+</template>
+
+<template id="tplProj">
+  <div class="item" data-kind="projects">
+    <div class="item__head">
+      <span class="item__badge">项目</span>
+      <div class="item__head-right">
+        <label class="switch" title="在简历中显示这个项目"><input type="checkbox" data-f="visible" checked /><span></span></label>
+        <button class="item__del" type="button" data-del aria-label="删除">×</button>
+      </div>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>项目名称</span><input type="text" data-f="name" placeholder="校园二手交易平台" /></label>
+      <label class="field"><span>你的角色</span><input type="text" data-f="role" placeholder="前端负责人" /></label>
+    </div>
+    <div class="field-row">
+      <label class="field"><span>开始</span><input type="text" data-f="start" placeholder="2024.09" /></label>
+      <label class="field"><span>结束</span><input type="text" data-f="end" placeholder="2024.12" /></label>
+    </div>
+    <label class="field">
+      <span>项目描述 <em class="tip" data-tip="每行一条。写清楚：解决什么问题、你用什么技术、最终效果如何。">?</em></span>
+      <textarea rows="4" data-f="desc" placeholder="面向校内 5000+ 学生的二手交易小程序&#10;独立完成前端架构，使用 Taro + TypeScript 实现多端复用&#10;上线 3 个月累计成交 1200 单"></textarea>
+    </label>
+    <div class="item__hint" data-hint></div>
+  </div>
+</template>
+
+<!-- 打印专用容器：导出 PDF 时只打印这里 -->
+<div id="printArea" aria-hidden="true"></div>
+
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>
